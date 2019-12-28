@@ -1,0 +1,47 @@
+#? stdtmpl | standard
+#
+#
+#
+#proc gen404Settings*(db: DbConn): string =
+# result = ""
+#
+# let errMsg = getValue(db, sql("SELECT errmsg FROM err404_settings;"))
+<link rel="stylesheet" href="/css/err404_private.css">
+<div id="err404Settings">
+  <div id="err404Main">
+    <h1>err404 settings</h1>
+
+    # let (n, v, d, u) = pluginGetDetails("err404")
+    <div id="pluginDetails">
+      <hr>
+      <div> <b>Package:</b> ${n}</div>
+      <div> <b>Version:</b> ${v}</div>
+      <div> <b>Description:</b><br>${d}</div>
+      <div> <b>URL:</b> <a href="${u}">${u}</a></div>
+      <hr>
+    </div>
+
+  </div>
+
+  <div id="err404Message">
+    <form method="POST" action="/err404/update" class="err404">
+      <p>Update your 404 error message. Write in HTML.</p>
+      <p>If you want to include the error message, insert [[errmsg]] which will be replace with the message.</p>
+      <textarea name="errmsg" class="textarea">${errMsg}</textarea>
+      <br>
+      <button type="submit" class="button is-link">Save</button>
+      <br>
+    </form>
+  </div>
+</div>
+#end proc
+#
+#
+#proc gen404*(db: DbConn, errCode: string): string =
+# result = ""
+#
+# let errMsg = getValue(db, sql("SELECT errmsg FROM err404_settings;"))
+<div id="err404" style="margin-top: 40px; max-width: 800px; background-color: white; margin-left: auto; margin-right: auto; padding: 25px; border-radius: 5px; border: 1px solid black; text-align: center;">
+  ${errMsg.replace("[[errmsg]]", errCode)}
+</div>
+#end proc

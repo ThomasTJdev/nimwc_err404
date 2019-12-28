@@ -1,0 +1,19 @@
+  [
+    {
+      "name": "404",
+      "foldername": "404",
+      "version": "0.1",
+      "requires": "6.0",
+      "url": "https://github.com/ThomasTJdev/nimwc_404.git",
+      "method": "git",
+      "tags": [
+        "404",
+        "error"
+      ],
+      "description": "404 error page with custom message.",
+      "license": "MIT",
+      "web": "https: //github.com/ThomasTJdev/nimwc_basket",
+      "sustainability": "",
+      "email": "codefactory@ttj.dk"
+    }
+  ]
